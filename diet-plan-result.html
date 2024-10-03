@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Diet Plan - NutriFit</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #181818;
+            color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        nav {
+            background-color: #2c2c2c;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        nav a {
+            color: #ffffff; /* White text */
+            text-decoration: none;
+            padding: 15px 25px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            font-size: 18px; /* Increased font size */
+        }
+        nav a:hover {
+            background-color: #ffffff; /* Hover effect */
+            color: #181818; /* Dark text on hover */
+        }
+        section {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+            font-size: 32px; /* Increased header size */
+        }
+        h3, h4 {
+            margin-top: 30px;
+            font-size: 24px; /* Increased subheader size */
+        }
+        p, li {
+            font-size: 18px; /* Increased paragraph and list item size */
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+            background-color: #2c2c2c;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Loading Animation Styles */
+        .loading-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(24, 24, 24, 0.9); /* Semi-transparent background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999; /* Ensure it stays on top */
+        }
+        .loading-spinner {
+            border: 8px solid #f0f0f0; /* Light grey */
+            border-top: 8px solid #00bcd4; /* Spinner color */
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1.5s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-container" id="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="diet-plan.html">Get Your Personalized Diet Plan</a>
+        <a href="fitness-planner-page.html">Fitness Planner</a>
+        <a href="articles.html">Articles</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
+
+    <section>
+        <h1>Your Personalized Diet Plan</h1>
+        <p id="caloric-intake"></p>
+
+        <h3>Meal Suggestions:</h3>
+        <ul id="meal-suggestions"></ul>
+        <p id="total-calories"></p>
+    </section>
+
+    <script>
+        // Get query parameters
+        const params = new URLSearchParams(window.location.search);
+        const weight = parseFloat(params.get('weight'));
+        const targetWeight = parseFloat(params.get('targetWeight'));
+        const foodPreference = params.get('foodPreference');
+
+        // Determine calorie intake based on weight and target weight
+        let dailyCalories;
+        let mealSuggestions = [];
+        let totalCalories = 0;
+
+        if (weight < targetWeight) {
+            dailyCalories = 2500; // Heavy calorie diet for weight gain
+            if (foodPreference === 'veg') {
+                mealSuggestions = [
+                    { dish: "Chia seed pudding with almond milk and mixed berries", calories: 400 },
+                    { dish: "Grilled vegetable and quinoa bowl with tahini dressing", calories: 600 },
+                    { dish: "Nut butter on whole grain crackers", calories: 200 },
+                    { dish: "Vegetable curry with basmati rice", calories: 700 },
+                    { dish: "Coconut milk ice cream with mango slices", calories: 600 }
+                ];
+            } else {
+                mealSuggestions = [
+                    { dish: "Avocado toast topped with poached eggs and feta", calories: 500 },
+                    { dish: "Chicken burrito bowl with brown rice, black beans, and veggies", calories: 700 },
+                    { dish: "Mixed nuts and a protein bar", calories: 300 },
+                    { dish: "Grilled salmon with a side of asparagus and mashed potatoes", calories: 800 },
+                    { dish: "Dark chocolate mousse", calories: 200 }
+                ];
+            }
+        } else if (weight > targetWeight) {
+            dailyCalories = 1200; // Calorie deficit diet for weight loss
+            if (foodPreference === 'veg') {
+                mealSuggestions = [
+                    { dish: "Overnight oats with almond milk, chia seeds, and banana", calories: 300 },
+                    { dish: "Lentil soup with a side salad", calories: 400 },
+                    { dish: "Celery sticks with peanut butter", calories: 200 },
+                    { dish: "Zucchini noodles with marinara sauce and veggies", calories: 250 },
+                    { dish: "Baked apple with cinnamon", calories: 50 }
+                ];
+            } else {
+                mealSuggestions = [
+                    { dish: "Greek yogurt with honey", calories: 250 },
+                    { dish: "Turkey and spinach wrap with whole grain tortilla", calories: 350 },
+                    { dish: "Hard-boiled eggs and cherry tomatoes", calories: 200 },
+                    { dish: "Stir-fried chicken with mixed vegetables", calories: 300 },
+                    { dish: "Fresh fruit salad", calories: 100 }
+                ];
+            }
+        } else {
+            dailyCalories = 1800; // Maintenance diet if at target weight
+            if (foodPreference === 'veg') {
+                mealSuggestions = [
+                    { dish: "Smoothie with kale, banana, and almond butter", calories: 400 },
+                    { dish: "Caprese salad with fresh mozzarella, tomatoes, and basil", calories: 300 },
+                    { dish: "Trail mix with dried fruit and nuts", calories: 200 },
+                    { dish: "Stuffed bell peppers with quinoa and black beans", calories: 600 },
+                    { dish: "Avocado chocolate mousse", calories: 300 }
+                ];
+            } else {
+                mealSuggestions = [
+                    { dish: "Omelette with spinach, tomatoes, and cheese", calories: 400 },
+                    { dish: "Caesar salad with grilled chicken", calories: 500 },
+                    { dish: "Cottage cheese with pineapple", calories: 200 },
+                    { dish: "Beef stir-fry with broccoli and rice", calories: 600 },
+                    { dish: "Chocolate chip cookies", calories: 100 }
+                ];
+            }
+        }
+
+        // Calculate total calories and display results
+        mealSuggestions.forEach(meal => {
+            totalCalories += meal.calories;
+        });
+
+        document.getElementById('caloric-intake').innerText = `Daily Caloric Requirement: ${dailyCalories} kcal`;
+        
+        const mealList = document.getElementById('meal-suggestions');
+        mealSuggestions.forEach(meal => {
+            const listItem = document.createElement('li');
+            listItem.innerText = `${meal.dish} - ${meal.calories} kcal`;
+            mealList.appendChild(listItem);
+        });
+
+        document.getElementById('total-calories').innerText = `Total Calories: ${totalCalories} kcal`;
+
+        // Hide loading animation after 0.5 seconds
+        window.onload = function() {
+            setTimeout(() => {
+                document.getElementById('loading').style.display = 'none';
+            }, 500);
+        };
+    </script>
+
+</body>
+</html>

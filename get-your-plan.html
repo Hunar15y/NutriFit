@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Personalized Fitness Plan - NutriFit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #181818;
+            color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        nav {
+            background-color: #333;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        .nav-links {
+            list-style: none;
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+        }
+        .nav-links li {
+            display: inline-block;
+            margin: 0 20px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 12px 20px;
+            transition: all 0.3s ease;
+        }
+        .nav-links a:hover {
+            background-color: white;
+            border-radius: 5px;
+            color: #000000;
+        }
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            margin: 20px auto;
+        }
+        .workout-split {
+            margin-top: 20px;
+            background-color: #2e2e2e;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .workout-split h2 {
+            margin-bottom: 20px;
+        }
+        .workout-split a {
+            color: #00bcd4; /* Color for clickable workout items */
+            text-decoration: none; /* Remove underline */
+            transition: color 0.3s;
+        }
+        .workout-split a:hover {
+            color: #fff; /* Change color on hover */
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="diet-plan.html">Get Your Personalized Diet Plan</a></li>
+        <li><a href="fitness-planner-page.html">Fitness Planner</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        
+    </ul>
+</nav>
+
+<header>
+    <h1>Your Personalized Fitness Plan</h1>
+    <div class="workout-split" id="workout-split">
+        <!-- Workout split will be injected here -->
+    </div>
+</header>
+
+<script>
+    function getUrlParams() {
+        const params = new URLSearchParams(window.location.search);
+        return {
+            gender: params.get('gender'),
+            goal: params.get('goal'),
+            age: params.get('age')
+        };
+    }
+
+    function generateWorkoutSplit() {
+        const { gender, goal, age } = getUrlParams();
+        const workoutSplit = document.getElementById('workout-split');
+
+        // Define the workout plans based on combinations
+        const workoutPlans = {
+            'male-lose_weight-30_below': `
+                <h2>7-Day Workout Split</h2>
+                <ul>
+                    <li><a href="chest-triceps.html">Day 1: Chest and Triceps</a></li>
+                    <li><a href="core.html">Day 2: Core</a></li>
+                    <li><a href="legs-shoulders.html">Day 3: Legs and Shoulders</a></li>
+                    <li><a href="rest-day.html">Day 4: Rest Day</a></li>
+                    <li><a href="cardio.html">Day 5: Cardio</a></li>
+                    <li><a href="back-biceps.html">Day 6: Back and Biceps</a></li>
+                    <li><a href="rest-day.html">Day 7: Rest Day</a></li>
+                </ul>
+            `,
+            'male-build_muscle-30_below': `
+                <h2>7-Day Workout Split</h2>
+                <ul>
+                    <li><a href="chest.html">Day 1: Chest</a></li>
+                    <li><a href="back.html">Day 2: Back</a></li>
+                    <li><a href="legs.html">Day 3: Legs</a></li>
+                    <li><a href="shoulders.html">Day 4: Shoulders</a></li>
+                    <li><a href="arms.html">Day 5: Arms</a></li>
+                    <li><a href="core.html">Day 6: Core</a></li>
+                    <li><a href="rest-day.html">Day 7: Rest Day</a></li>
+                </ul>
+            `,
+            'male-maintain-30_below': `
+                <h2>7-Day Workout Split</h2>
+                <ul>
+                    <li><a href="full-body-strength.html">Day 1: Full Body Strength</a></li>
+                    <li><a href="hiit.html">Day 2: HIIT</a></li>
+                    <li><a href="upper-body.html">Day 3: Upper Body</a></li>
+                    <li><a href="lower-body.html">Day 4: Lower Body</a></li>
+                    <li><a href="core.html">Day 5: Core</a></li>
+                    <li><a href="yoga.html">Day 6: Yoga</a></li>
+                    <li><a href="rest-day.html">Day 7: Rest Day</a></li>
+                </ul>
+            `,
+            'male-lose_weight-above_30': `
+                <h2>7-Day Workout Split</h2>
+                <ul>
+                    <li><a href="full-body-strength.html">Day 1: Full Body Strength</a></li>
+                    <li><a href="upper-body.html">Day 2: Upper Body</a></li>
+                    <li><a href="hiit.html">Day 3: HIIT</a></li>
+                    <li><a href="rest-day.html">Day 4: Rest Day</a></li>
+                    <li><a href="cardio.html">Day 5: Cardio</a></li>
+                    <li><a href="lower-body.html">Day 6: Lower Body</a></li>
+                    <li><a href="rest-day.html">Day 7: Rest Day</a></li>
+                </ul>
+            `,
+            'male-build_muscle-above_30': `
+                <h2>7-Day Workout Split</h2>
+                <ul>
+                    <li><a href="chest-triceps.html">Day 1: Chest and Triceps</a></li>
+                    <li><a href="back-biceps.html">Day 2: Back and Biceps</a></li>
+                    <li><a href="rest-day.html">Day 3: Rest Day</a></li>
+                    <li><a href="legs-shoulders.html">Day 4: Shoulders and Legs</a></li>
+                    <li><a href="core.html">Day 5: Core</a></li>
+                    <li><a href="active-recovery.html">Day 6: Active Recovery</a></li>
+                    <li><a href="rest-day.html">Day 7: Rest Day</a></li>
+                </ul>
+            `,
+            'male-maintain-above_30': `
+                <h2>7-Day Workout Split</h2>
+                <ul>
+                    <li><a href="upper-body.html">Day 1: Upper Body</a></li>
+                    <li><a href="lower-body.html">Day 2: Lower Body</a></li>
+                    <li><a href="cardio.html">Day 3: Cardio</a></li>
+                    <li><a href="core.html">Day 4: Core</a></li>
+                    <li><a href="active-recovery.html">Day 5: Active Recovery</a></li>
+                    <li><a href="hiit.html">Day 6: HIIT</a></li>
+                    <li><a href="rest-day.html">Day 7: Rest Day</a></li>
+                </ul>
+            `,
+            'female-lose_weight-30_below': `
+                <h2>7-Day Workout Split</h2>
+                <ul>
+                    <li><a href="legs-cardio.html">Day 1: Legs and Cardio</a></li>
+                    <li><a href="upper-body.html">Day 2: Upper Body</a></li>
+                    <li><a href="core.html">Day 3: Core</a></li>
+                    <li><a href="rest-day.html">Day 4: Rest Day</a></li>
+                    <li><a href="hiit.html">Day 5: HIIT</a></li>
+                    <li><a href="full-body.html">Day 6: Full Body</a></li>
+                    <li><a href="rest-day.html">Day 7: Rest Day</a></li>
+                </ul>
+            `,
+            'female-build_muscle-30_below': `
+                <h2>7-Day Workout Split</h2>
+                <ul>
+                    <li><a href="chest-triceps.html">Day 1: Chest and Triceps</a></li>
+                    <li><a href="back-biceps.html">Day 2: Back and Biceps</a></li>
+                    <li><a href="legs.html">Day 3: Legs</a></li>
+                    <li><a href="core.html">Day 4: Core</a></li>
+                    <li><a href="shoulders.html">Day 5: Shoulders</a></li>
+                    <li><a href="cardio.html">Day 6: Cardio</a></li>
+                    <li><a href="rest-day.html">Day 7: Rest Day</a></li>
+                </ul>
+            `,
+            'female-maintain-30_below': `
+                <h2>7-Day Workout Split</h2>
+                <ul>
+                    <li><a href="full-body.html">Day 1: Full Body</a></li>
+                    <li><a href="hiit.html">Day 2: HIIT</a></li>
+                    <li><a href="upper-body.html">Day 3: Upper Body</a></li>
+                    <li><a href="lower-body.html">Day 4: Lower Body</a></li>
+                    <li><a href="yoga.html">Day 5: Yoga</a></li>
+                    <li><a href="cardio.html">Day 6: Cardio</a></li>
+                    <li><a href="rest-day.html">Day 7: Rest Day</a></li>
+                </ul>
+            `,
+            'female-lose_weight-above_30': `
+                <h2>7-Day Workout Split</h2>
+                <ul>
+                    <li><a href="cardio.html">Day 1: Cardio</a></li>
+                    <li><a href="upper-body.html">Day 2: Upper Body</a></li>
+                    <li><a href="lower-body.html">Day 3: Lower Body</a></li>
+                    <li><a href="rest-day.html">Day 4: Rest Day</a></li>
+                    <li><a href="core.html">Day 5: Core</a></li>
+                    <li><a href="hiit.html">Day 6: HIIT</a></li>
+                    <li><a href="rest-day.html">Day 7: Rest Day</a></li>
+                </ul>
+            `,
+            'female-build_muscle-above_30': `
+                <h2>7-Day Workout Split</h2>
+                <ul>
+                    <li><a href="chest.html">Day 1: Chest</a></li>
+                    <li><a href="back.html">Day 2: Back</a></li>
+                    <li><a href="shoulders.html">Day 3: Shoulders</a></li>
+                    <li><a href="legs.html">Day 4: Legs</a></li>
+                    <li><a href="arms.html">Day 5: Arms</a></li>
+                    <li><a href="core.html">Day 6: Core</a></li>
+                    <li><a href="rest-day.html">Day 7: Rest Day</a></li>
+                </ul>
+            `,
+            'female-maintain-above_30': `
+                <h2>7-Day Workout Split</h2>
+                <ul>
+                    <li><a href="upper-body.html">Day 1: Upper Body</a></li>
+                    <li><a href="lower-body.html">Day 2: Lower Body</a></li>
+                    <li><a href="cardio.html">Day 3: Cardio</a></li>
+                    <li><a href="core.html">Day 4: Core</a></li>
+                    <li><a href="hiit.html">Day 5: HIIT</a></li>
+                    <li><a href="active-recovery.html">Day 6: Active Recovery</a></li>
+                    <li><a href="rest-day.html">Day 7: Rest Day</a></li>
+                </ul>
+            `,
+        };
+
+        // Set the workout plan based on the user's inputs
+        const key = `${gender}-${goal}-${age}`;
+        workoutSplit.innerHTML = workoutPlans[key] || `<h2>No workout plan available for your selection.</h2>`;
+    }
+
+    generateWorkoutSplit();
+</script>
+
+</body>
+</html>

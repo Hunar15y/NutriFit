@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Fitness Plan - NutriFit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #181818;
+            color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            text-align: center; /* Center align the entire body content */
+        }
+        nav {
+            background-color: #333;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        .nav-links {
+            list-style: none;
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+        }
+        .nav-links li {
+            display: inline-block;
+            margin: 0 20px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 12px 20px;
+            transition: all 0.3s ease;
+        }
+        .nav-links a:hover {
+            background-color: white;
+            border-radius: 5px;
+            color: #000000;
+        }
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            margin: 20px auto;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: white; /* Changed heading text color to white */
+        }
+        .form-option {
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column; /* Stack label and dropdown vertically */
+            align-items: center; /* Center align dropdowns */
+        }
+        .form-option label {
+            margin-bottom: 10px; /* Space between label and dropdown */
+            color: #f0f0f0;
+        }
+        .form-option select {
+            padding: 10px;
+            background-color: #333;
+            color: #f0f0f0;
+            border: 1px solid #00bcd4;
+            border-radius: 5px;
+            font-size: 1rem; /* Font size for dropdowns */
+            width: 250px; /* Set a consistent width for dropdowns */
+            cursor: pointer;
+        }
+        .submit-button {
+            padding: 15px 30px;
+            background-color: #00bcd4;
+            color: #181818;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: inline-block;
+            transition: background-color 0.3s;
+            cursor: pointer;
+            font-size: 1.1rem; /* Increased font size for better readability */
+            border: none; /* Removed default button border */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Added shadow for depth */
+        }
+        .submit-button:hover {
+            background-color: #00a1b2;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Shadow on hover */
+        }
+    </style>
+    <script>
+        function getPlan() {
+            const gender = document.getElementById('gender-select').value;
+            const goal = document.getElementById('goal-select').value;
+            const age = document.getElementById('age-select').value;
+
+            // Create the URL with the selected parameters
+            const url = `get-your-plan.html?gender=${gender}&goal=${goal}&age=${age}`;
+            window.location.href = url; // Redirect to the plan page
+        }
+    </script>
+</head>
+<body>
+
+<nav>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="diet-plan.html">Get Your Personalized Diet Plan</a></li>
+        <li><a href="fitness-planner-page.html" class="active">Fitness Planner</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        
+    </ul>
+</nav>
+
+<header>
+    <h1>Get Your Personalized Fitness Plan</h1>
+    <form id="fitness-plan-form" onsubmit="event.preventDefault(); getPlan();">
+        <div class="form-option">
+            <label for="gender-select">Gender:</label>
+            <select id="gender-select" required>
+                <option value="" disabled selected>Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+        <div class="form-option">
+            <label for="goal-select">Goal:</label>
+            <select id="goal-select" required>
+                <option value="" disabled selected>Select Goal</option>
+                <option value="lose_weight">Lose Weight</option>
+                <option value="build_muscle">Build Muscle</option>
+                <option value="maintain">Maintain</option>
+            </select>
+        </div>
+        <div class="form-option">
+            <label for="age-select">Age:</label>
+            <select id="age-select" required>
+                <option value="" disabled selected>Select Age Group</option>
+                <option value="30_below">30 and Below</option>
+                <option value="above_30">Above 30</option>
+            </select>
+        </div>
+        <button type="submit" class="submit-button">Get Your Plan</button>
+    </form>
+</header>
+
+</body>
+</html>

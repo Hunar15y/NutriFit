@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - NutriFit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #181818;
+            color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        /* Left side image */
+        .left-image {
+            position: absolute; /* Absolute positioning */
+            top: 120px; /* Below the menu bar */
+            left: 1cm; /* 1 cm from the left */
+            width: 230px; /* Keep original size */
+            height: 14CM; /* Maintain aspect ratio */
+            z-index: 1; /* Behind the content */
+            opacity: 1; /* Optional: add some transparency */
+        }
+
+        /* Right side image */
+        .right-image {
+            position: absolute; /* Absolute positioning */
+            top: 0; /* Top of the page */
+            right: 0; /* Right side of the page */
+            width: 200px; /* Keep original size */
+            height: auto; /* Maintain aspect ratio */
+            z-index: -1; /* Behind the content */
+            opacity: 0.5; /* Optional: add some transparency */
+        }
+
+        nav {
+            background-color: #333;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            position: relative; /* Ensures navbar stays above the images */
+            z-index: 10; /* Keeps navbar on top of the images */
+        }
+
+        .nav-links {
+            list-style: none;
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-links li {
+            display: inline-block;
+            margin: 0 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 12px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: white;
+            border-radius: 5px;
+            color: #000000;
+        }
+
+        .nav-links a.active {
+            border-bottom: 2px solid #00bcd4;
+        }
+
+        section {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            position: relative; /* Allow content to be on top */
+            z-index: 1; /* Content above images */
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #2c2c2c;
+            margin-top: 20px;
+            border-radius: 5px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        footer p {
+            color: white;
+        }
+
+        .team-member {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+
+        .team-member img {
+            margin-right: 20px;
+            border-radius: 50%;
+            width: 150px;
+            height: auto;
+        }
+
+        .team-member-description {
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About Us</a></li>
+            <li><a href="diet-plan.html">Get Your Personalized Diet Plan</a></li>
+            <li><a href="fitness-planner-page.html">Fitness Planner</a></li>
+            <li><a href="articles.html">Articles</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <img src="left-image.jpg" alt="Left Image" class="left-image"> <!-- Left Image -->
+    <section>
+        <h1>About Us</h1>
+        <p>Welcome to NutriFit! At NutriFit, we are passionate about promoting a healthier lifestyle through personalized nutrition. Our journey began with a shared vision of making nutritional guidance accessible and tailored to individual needs. We understand that everyone's dietary requirements are unique, influenced by factors such as age, weight, activity level, and personal preferences. Our mission is to empower individuals to make informed food choices that align with their health goals, whether it be weight loss, muscle gain, or maintaining a balanced diet.</p>
+
+        <p>We believe that a well-balanced diet is not just about restrictions; it’s about celebrating food that nourishes the body and soul. We are here to provide you with tailored diet plans, informative articles, and supportive resources that guide you on your journey to better health. Our approach emphasizes the importance of whole foods, proper nutrition, and maintaining a healthy lifestyle through informed choices.</p>
+
+        <p>At NutriFit, we take pride in our commitment to science-based nutrition. Our resources are grounded in research and real-world experience, allowing us to offer effective, practical advice. We continually strive to stay updated on the latest research in nutrition and wellness, ensuring our clients receive the best guidance available. Our goal is to create a community where everyone can thrive by fostering healthy habits that last a lifetime.</p>
+
+        <h2>Meet the Team</h2>
+
+        <div class="team-member">
+            <img src="hunarIMG.jpg" alt="Photo of Hunar Bedi">
+            <div class="team-member-description">
+                <h3>Hunar Bedi</h3>
+                <p>Hunar is a certified nutritionist with over 5 years of experience in dietary science. With a background in health and wellness, Hunar has dedicated his career to helping individuals navigate the complexities of nutrition. He believes that food is not just fuel, but a vital part of a healthy lifestyle.</p>
+                <p>Throughout his journey, Hunar has worked with clients from diverse backgrounds, providing personalized diet plans that fit their lifestyle and health objectives. His approach is client-centered, focusing on understanding individual needs and preferences. Hunar enjoys staying updated on the latest nutrition research and trends, ensuring that NutriFit offers the most effective and relevant advice.</p>
+                <p>In addition to his work, Hunar enjoys cooking, hiking, and spending quality time with family and friends. He believes that food should be enjoyable and nourishing, and he loves sharing that philosophy with others. He is also an advocate for mental health awareness, emphasizing the connection between nutrition, physical health, and mental well-being.</p>
+            </div>
+        </div>
+
+        <div class="team-member">
+            <img src="yugIMG.jpg" alt="Photo of Yug Jain">
+            <div class="team-member-description">
+                <h3>Yug Jain</h3>
+                <p>Yug is a fitness enthusiast and a certified personal trainer with a strong belief in the synergy between nutrition and exercise. With a passion for healthy living, Yug has spent the last 6 years helping people transform their lives through fitness and proper dietary habits.</p>
+                <p>Having worked in various fitness environments, Yug brings a holistic approach to wellness that emphasizes the importance of both physical activity and nutrition. His focus is on educating clients about how to fuel their bodies effectively to enhance their performance and overall health. He believes that every small change contributes to a larger goal and encourages clients to take a gradual approach to their wellness journey.</p>
+                <p>Outside of work, Yug enjoys outdoor adventures, experimenting with new recipes, and engaging with the fitness community. He often participates in workshops and seminars to further his knowledge and share his passion for health and wellness with others. Yug is dedicated to inspiring others to find joy in physical activity and nutritious food.</p>
+            </div>
+        </div>
+
+        <h2>Our Vision and Values</h2>
+        <p>At NutriFit, our vision is to be a leading resource for personalized nutrition and wellness solutions. We believe that by providing individuals with the tools they need to make informed choices, we can contribute to a healthier society. Our core values include integrity, compassion, and a commitment to excellence. We treat every client with respect and understanding, recognizing that everyone’s journey is unique.</p>
+
+        <p>We aim to create a supportive community where everyone can share their experiences and learn from one another. Our resources, from diet plans to articles, are designed to educate and inspire. We encourage our clients to engage with us, ask questions, and provide feedback. Together, we can build a healthier future, one meal at a time.</p>
+
+        <h2>Join Us on This Journey</h2>
+        <p>We invite you to explore our website, engage with our resources, and become part of the NutriFit community. Whether you're looking for a personalized diet plan, seeking articles on nutrition and wellness, or simply wanting to learn more about healthy living, you are in the right place. Your journey to a healthier you starts here, and we are excited to be part of it!</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 NutriFit. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

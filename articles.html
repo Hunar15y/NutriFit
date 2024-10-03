@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles - NutriFit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('ARTICLESimg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #f0f0f0;
+        }
+
+        /* Updated Navbar Styling */
+        nav {
+            background-color: #333;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        .nav-links {
+            list-style: none;
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+        }
+        .nav-links li {
+            display: inline-block;
+            margin: 0 20px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 12px 20px;
+            transition: all 0.3s ease;
+        }
+        .nav-links a:hover {
+            background-color: white;
+            border-radius: 5px;
+            color: #000000;
+        }
+        .nav-links a.active {
+            border-bottom: 2px solid #00bcd4;
+        }
+
+        section {
+            padding: 100px 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 48px;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        .article-button {
+            display: inline-block;
+            background-color: #2c2c2c;
+            color: #f0f0f0;
+            text-decoration: none;
+            padding: 15px 30px;
+            margin: 10px 5px;
+            border: none;
+            border-radius: 5px;
+            font-size: 20px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .article-button:hover {
+            background-color: #ffffff;
+            color: #181818;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Updated Centered NavBar with Larger Size and Hover Effects (Same as Contact Page) -->
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="diet-plan.html">Get Your Personalized Diet Plan</a></li>
+            <li><a href="fitness-planner-page.html">Fitness Planner</a></li> <!-- Added Fitness Planner link -->
+            <li><a href="articles.html" class="active">Articles</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <h1>ARTICLES</h1>
+        <a href="importance-of-balanced-nutrition.html" class="article-button">The Importance of Balanced Nutrition</a>
+        <a href="easy-healthy-recipes.html" class="article-button">5 Easy Healthy Recipes</a>
+        <a href="stay-motivated-fitness-journey.html" class="article-button">How to Stay Motivated on Your Fitness Journey</a>
+        <a href="UPFC.html" class="article-button">Ultra-Processed Food Consumption in the World.</a>
+        <a href="hydration-importance.html" class="article-button">The Importance of Staying Hydrated</a>
+    </section>
+</body>
+</html>
